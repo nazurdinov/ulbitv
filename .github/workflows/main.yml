@@ -26,5 +26,7 @@ jobs:
         run: npm run stylelint:scss
       - name: Unit tests
         run: npm run test:unit
+      - name: Build Storybook
+        run: npm run storybook:build
       - name: Regresion tests
         run: npm run test:ui:ci
