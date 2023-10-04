@@ -1,15 +1,20 @@
-import { render } from "react-dom";
-import App from "./App";
-import { BrowserRouter } from "react-router-dom";
-import ThemeProvider from "./theme/ThemeProvider";
-import LangProvider from "./lang/LangProvider";
+import { BrowserRouter } from 'react-router-dom'
+import { ThemeProvider } from 'app/providers/ThemeProvider'
+import { createRoot } from 'react-dom/client'
 
+import App from 'app/App'
+import 'shared/config/i18n/i18n'
+import { ErrorBoundary } from 'app/providers/ErrorBoundary'
 
-render(<BrowserRouter>
-        <ThemeProvider>
-        <LangProvider>
-          <App />
-        </LangProvider>
-        </ThemeProvider>
-      </BrowserRouter>, 
-document.getElementById('root'))
+const rootElement = document.getElementById('root')!
+
+const root = createRoot(rootElement)
+root.render(
+  <BrowserRouter>
+    <ErrorBoundary>
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
+    </ErrorBoundary>
+  </BrowserRouter>
+)
