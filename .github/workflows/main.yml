@@ -12,11 +12,11 @@ jobs:
         node-version: [ 18.x ]
     steps:
       - uses: actions/checkout@v2
-      - name: Setup node ${{matrix.node-version}}
+      - name: "Setup node ${{matrix.node-version}} ⚙️"
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Install packages
+      - name: "Install packages 📦"
         run: npm i
       - name: Build project
         run: npm run build:prod

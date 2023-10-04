@@ -1,5 +1,4 @@
-
-export default function buildSvgLoader() {
+export default function buildSvgLoader () {
   return {
     test: /\.svg$/,
     use: ['@svgr/webpack']
