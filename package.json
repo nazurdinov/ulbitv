@@ -11,7 +11,7 @@
     "lint:ts:fix": "npx eslint '**/*.{ts,tsx}' --fix",
     "stylelint:scss": "npx stylelint '**/*.scss'",
     "stylelint:scss:fix": "npx stylelint '**/*.scss' --fix",
-    "test:unit": "npx jest --config ./config/jest/jest.config.ts",
+    "test:unit": "npx jest --config ./config/jest/jest.config.ts --silent",
     "storybook:run": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook",
     "test:ui": "npx loki test --config ./config/storybook",

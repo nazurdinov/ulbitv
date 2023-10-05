@@ -11,9 +11,7 @@ describe('Button', () => {
   test('should add and remove "collapsed" class on main wrapper', () => {
     renderWithTranslations(<Sidebar />)
     const sidebar = screen.getByTestId('Sidebar')
-    const toggleBtn = screen.getByRole('button', {
-      name: /Toggle/i
-    })
+    const toggleBtn = screen.getByTestId('collapseBtn')
     fireEvent.click(toggleBtn)
     expect(sidebar).toHaveClass('collapsed')
 
