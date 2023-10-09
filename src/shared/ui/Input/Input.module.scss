@@ -1,0 +1,17 @@
+.Input{
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+
+  label {
+    font-size: 12px;
+  }
+
+  input {
+    padding: 7px 10px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 3px;
+    color: var(--primary-color);
+    font-size: 12px;
+  }
+}

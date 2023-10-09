@@ -8,12 +8,10 @@ import { Suspense } from 'react'
 
 function App (): JSX.Element {
   const { theme } = useTheme()
-
   return (
     <Suspense fallback=''>
-    <div data-testid='app' className={classNames('app', {}, [theme])}>
+    <div data-testid='app' id='app' className={classNames('app', {}, [theme])}>
       <Navbar />
-
       <div className="content-page">
         <Sidebar />
         <AppRouter />

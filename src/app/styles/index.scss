@@ -3,10 +3,13 @@
 @import url("./themes/light.scss");
 @import url("./vars/global.scss");
 
-.app {
-  font: var(--font-m);
-  background: var(--bg-color);
+body {
   color: var(--secondary-color);
+  font: var(--font-m);
+}
+
+.app {
+  background: var(--bg-color);
   min-height: 100vh;
 }
 

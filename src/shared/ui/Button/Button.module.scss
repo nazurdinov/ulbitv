@@ -11,13 +11,11 @@
 }
 
 .outlined {
-  border: 1px solid var(--secondary-color);
-  color: var(--secondary-color);
+  border: 1px solid var(--primary-color-inverted);
+  color: var(--primary-color-inverted);
   outline: 0;
   padding: 10px 20px;
   margin: 0;
   background: none;
   border-radius: 3px;
 }
-
-

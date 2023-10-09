@@ -5,16 +5,19 @@ import { createRoot } from 'react-dom/client'
 import App from 'app/App'
 import 'shared/config/i18n/i18n'
 import { ErrorBoundary } from 'app/providers/ErrorBoundary'
+import { StoreProvider } from './app/providers/StoreProvider'
 
 const rootElement = document.getElementById('root')!
 
 const root = createRoot(rootElement)
 root.render(
-  <BrowserRouter>
-    <ErrorBoundary>
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
-    </ErrorBoundary>
-  </BrowserRouter>
+  <StoreProvider>
+    <BrowserRouter>
+      <ErrorBoundary>
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
+      </ErrorBoundary>
+    </BrowserRouter>
+  </StoreProvider>
 )
