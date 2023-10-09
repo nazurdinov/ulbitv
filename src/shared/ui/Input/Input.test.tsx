@@ -3,7 +3,7 @@ import { Input } from './Input'
 
 describe('Input', () => {
   test('should render', () => {
-    render(<Input />)
+    render(<Input value='' />)
     const input = screen.getByTestId('input')
     expect(input).toBeInTheDocument()
   })
