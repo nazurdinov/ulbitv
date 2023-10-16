@@ -13,10 +13,10 @@ export function buildPlugins ({ paths, isDev }: BuildOptions): WebpackPluginInst
       chunkFilename: 'css/[id].[contenthash:3].css'
     })
   ]
-  // if (isDev) {
-  plugins.push(new BundleAnalyzerPlugin({
-    openAnalyzer: true
-  }))
-  // }
+  if (isDev) {
+    plugins.push(new BundleAnalyzerPlugin({
+      openAnalyzer: true
+    }))
+  }
   return plugins
 }
