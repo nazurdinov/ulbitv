@@ -2,7 +2,6 @@
 import { useState, type ReactNode, useEffect } from 'react'
 import styles from './Modal.module.scss'
 import { classNames } from 'shared/lib/classnames/classNames'
-import Portal from 'shared/ui/Portal/Portal'
 
 interface ModalProps {
   className?: string
@@ -62,7 +61,6 @@ export const Modal = (props: ModalProps) => {
   }
 
   return (
-    <Portal>
       <div className={classNames(styles.Modal, mods, [className ?? ''])}>
         <div className={styles.overlay} onClick={onCloseHandler}>
           <div className={styles.content} onClick={onContentClickHandler}>
@@ -70,6 +68,5 @@ export const Modal = (props: ModalProps) => {
           </div>
         </div>
       </div>
-    </Portal>
   )
 }

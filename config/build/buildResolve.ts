@@ -6,7 +6,8 @@ export function buildResolvers (options: BuildOptions): ResolveOptions {
     extensions: ['.ts', '.tsx', '.js'],
     preferAbsolute: true,
     modules: [
-      options.paths.src, 'node_modules'
+      options.paths.src,
+      'node_modules'
     ]
   }
 }

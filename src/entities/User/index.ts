@@ -1,9 +1,8 @@
 export {
-  userActions,
-  userReducer
+  userReducer,
+  userActions
 } from './model/slice/userSlice'
-
 export type {
-  User,
-  UserSchema
+  UserSchema,
+  User
 } from './model/types/user'

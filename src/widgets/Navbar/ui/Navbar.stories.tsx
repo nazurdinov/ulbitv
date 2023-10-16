@@ -4,12 +4,14 @@ import { Navbar } from './Navbar'
 import { Theme } from 'app/providers/ThemeProvider'
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator/ThemeDecorator'
 import { RouterDecorator } from 'shared/config/storybook/decorators/RouterDecorator/RouterDecorator'
+import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator/StoreDecorator'
 
 const meta: Meta<typeof Navbar> = {
   title: 'Widget/Navbar',
   component: Navbar,
   decorators: [
-    RouterDecorator
+    RouterDecorator,
+    StoreDecorator
   ]
 }
 

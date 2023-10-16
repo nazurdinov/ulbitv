@@ -17,11 +17,15 @@ export const Button = (props: ButtonProps): JSX.Element => {
     className = '',
     children,
     theme,
+    disabled = false,
     ...otherProps
   } = props
 
+  const mods = {
+    [styles.disabled]: disabled
+  }
   return (
-    <button className={classNames(styles.Button, {}, [className, styles[theme]])} {...otherProps}>
+    <button disabled={disabled} className={classNames(styles.Button, mods, [className, styles[theme]])} {...otherProps}>
       {children}
     </button>
   )
