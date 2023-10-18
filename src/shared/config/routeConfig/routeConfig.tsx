@@ -1,17 +1,22 @@
 import { AboutPage } from 'pages/AboutPage'
 import { HomePage } from 'pages/HomePage'
 import { NotFoundPage } from 'pages/NotFoundPage'
+import { ProfilePage } from 'pages/ProfilePage'
 import { type RouteProps } from 'react-router-dom'
 
 export enum AppRouteName {
   MAIN = 'main',
   ABOUT = 'about',
+  PROFILE = 'profile',
   NOT_FOUND = 'not_found'
 }
 
 export const RoutePaths: Record<AppRouteName, string> = {
   [AppRouteName.MAIN]: '/',
   [AppRouteName.ABOUT]: '/about',
+  [AppRouteName.PROFILE]: '/profile',
+
+  // FALLBACK ROUTE
   [AppRouteName.NOT_FOUND]: '*'
 }
 
@@ -26,6 +31,13 @@ export const routesConfig: RouteProps[] = [
     path: RoutePaths.about,
     element: <AboutPage />
   },
+  {
+    id: AppRouteName.PROFILE,
+    path: RoutePaths.profile,
+    element: <ProfilePage />
+  },
+
+  // Fallback page
   {
     id: AppRouteName.NOT_FOUND,
     path: RoutePaths.not_found,

@@ -42,7 +42,7 @@ const LoginForm = ({ className = '' }: LoginFormProps) => {
   }
 
   const onLoginClick = () => {
-    void dispatch(loginByUsername({
+    dispatch(loginByUsername({
       username, password
     }))
   }

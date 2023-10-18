@@ -34,7 +34,7 @@ export const Navbar = ({ className = '' }: NavbarProps): JSX.Element => {
   return (
     <div className={classNames(styles.Navbar, {}, [className])}>
       <Button theme={ThemeButton.OUTLINED} onClick={() => { setIsLoginModalOpen(prev => !prev) }}>{t('Войти')}</Button>
-      { isLoginModalOpen && <LoginModal isOpen={isLoginModalOpen} onClose={() => { setIsLoginModalOpen(prev => !prev) } } /> }
+      { <LoginModal isOpen={isLoginModalOpen} onClose={() => { setIsLoginModalOpen(prev => !prev) } } /> }
     </div>
   )
 }

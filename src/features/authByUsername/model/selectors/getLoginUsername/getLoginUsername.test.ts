@@ -1,6 +1,5 @@
-import { type StateSchema } from 'app/config/store/StateSchema'
+import { type DeepPartial, type StateSchema } from 'app/config/store/StateSchema'
 import { getLoginUsername } from './getLoginUsername'
-import { type DeepPartial } from '@reduxjs/toolkit'
 
 describe('getLoginUsername', () => {
   test('should return username', () => {

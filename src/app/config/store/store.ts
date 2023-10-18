@@ -1,15 +1,30 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { type AnyAction, type CombinedState, type Reducer, configureStore } from '@reduxjs/toolkit'
 import { type StateSchema } from './StateSchema'
 import { rootReducer } from './rootReducer'
 import { createReducerManager } from './reducerManager'
+import { $api } from 'shared/api/api'
+import { type NavigateOptions, type To } from 'react-router-dom'
 
 const reducerManager = createReducerManager(rootReducer)
 
-const createReduxStore = (initialState?: StateSchema) => {
-  const configStore = configureStore<StateSchema>({
-    reducer: reducerManager.reduce,
+export const createReduxStore = (
+  navigate?: (to: To, options?: NavigateOptions) => void,
+  initialState?: StateSchema
+) => {
+  const configStore = configureStore({
+    reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>, AnyAction>,
     devTools: true,
-    preloadedState: initialState
+    preloadedState: initialState,
+    middleware: getDefaultMiddleware =>
+      getDefaultMiddleware({
+        thunk: {
+          extraArgument: {
+            api: $api,
+            navigate
+          }
+        }
+      })
+
   })
 
   // eslint-disable-next-line
@@ -19,6 +34,4 @@ const createReduxStore = (initialState?: StateSchema) => {
   return configStore
 }
 
-export const store = createReduxStore()
-
-export type AppDispatch = typeof store.dispatch
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']

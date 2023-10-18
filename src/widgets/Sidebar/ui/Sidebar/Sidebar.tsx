@@ -8,6 +8,7 @@ import { LangSwitcher } from 'widgets/LangSwitcher'
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 import HomeIcon from 'shared/assets/icons/main-20-20.svg'
 import AboutIcon from 'shared/assets/icons/about-20-20.svg'
+import ProfileIcon from 'shared/assets/icons/profile_icon.svg'
 
 interface SidebarProps {
   className?: string
@@ -34,6 +35,12 @@ export const Sidebar = ({ className = '' }: SidebarProps): JSX.Element => {
           <AboutIcon />
           {
             !collapsed && <span>{t('About')}</span>
+          }
+        </AppLink>
+        <AppLink className={classNames(styles.menuItem)} theme={AppLinkTheme.SECONDARY} to={'/profile'}>
+          <ProfileIcon />
+          {
+            !collapsed && <span>{t('Profile')}</span>
           }
         </AppLink>
       </div>

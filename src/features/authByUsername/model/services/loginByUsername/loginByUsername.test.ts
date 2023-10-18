@@ -25,7 +25,9 @@ describe('Login by username service', () => {
     }))
 
     const action = loginByUsername({ username: '123', password: '123' })
-    const result = await action(dispatch, getState, undefined)
+    const result = await action(dispatch, getState, {
+      api: mockedAxios
+    })
 
     expect(mockedAxios.post).toHaveBeenCalled()
     expect(result.meta.requestStatus).toBe('fulfilled')
@@ -37,7 +39,9 @@ describe('Login by username service', () => {
     }))
 
     const action = loginByUsername({ username: '123', password: '123' })
-    const result = await action(dispatch, getState, undefined)
+    const result = await action(dispatch, getState, {
+      api: mockedAxios
+    })
 
     expect(mockedAxios.post).toHaveBeenCalled()
     expect(result.meta.requestStatus).toBe('rejected')

@@ -1,6 +1,5 @@
-import { type StateSchema } from 'app/config/store/StateSchema'
+import { type DeepPartial, type StateSchema } from 'app/config/store/StateSchema'
 import { getLoginError } from './getLoginError'
-import { type DeepPartial } from '@reduxjs/toolkit'
 
 describe('getLoginError', () => {
   test('should return error msg', () => {
