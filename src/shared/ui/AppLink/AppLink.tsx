@@ -10,13 +10,13 @@ export enum AppLinkTheme {
 interface AppLinkProps extends LinkProps {
   className?: string
   theme: AppLinkTheme
-  hidden?: boolean
+  isVisible?: boolean
 }
 
 export const AppLink = (props: AppLinkProps): JSX.Element => {
-  const { className = '', hidden = false, children, theme, to, ...rest } = props
+  const { className = '', isVisible = true, children, theme, to, ...rest } = props
 
-  if (hidden) {
+  if (!isVisible) {
     return <></>
   }
 

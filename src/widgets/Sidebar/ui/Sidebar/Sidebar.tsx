@@ -1,15 +1,14 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import styles from './Sidebar.module.scss'
 import { classNames } from 'shared/lib/classnames/classNames'
 import { ThemeSwitcher } from 'widgets/ThemeSwithcer'
 import { LangSwitcher } from 'widgets/LangSwitcher'
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
-import HomeIcon from 'shared/assets/icons/main-20-20.svg'
-import AboutIcon from 'shared/assets/icons/about-20-20.svg'
-import ProfileIcon from 'shared/assets/icons/profile_icon.svg'
+
 import { useAuth } from 'shared/lib/hooks/useAuth/useAuth'
+import { MenuItem } from '../MenuItem/MenuItem'
+import { menuItems } from 'widgets/Sidebar/model/menuItems'
 
 interface SidebarProps {
   className?: string
@@ -25,27 +24,21 @@ export const Sidebar = ({ className = '' }: SidebarProps): JSX.Element => {
     setCollapsed(prev => !prev)
   }
 
+  const menuItemList = useMemo(() => {
+    return menuItems.map(item => <MenuItem
+      key={item.to}
+      to={item.to}
+      Icon={<item.Icon />}
+      isOnlyIcon={collapsed}
+      label={t(item.label)}
+      isVisible={item.authOnly ? !!isAuth : true}
+      />)
+  }, [menuItems, isAuth])
+
   return (
     <div data-testid="Sidebar" className={classNames(styles.Sidebar, { [styles.collapsed]: collapsed }, [className])}>
       <div className={styles.menu}>
-        <AppLink className={classNames(styles.menuItem)} theme={AppLinkTheme.SECONDARY} to={'/'}>
-          <HomeIcon />
-          {
-            !collapsed && <span>{t('Home')}</span>
-          }
-        </AppLink>
-        <AppLink className={classNames(styles.menuItem)} theme={AppLinkTheme.SECONDARY} to={'/about'}>
-          <AboutIcon />
-          {
-            !collapsed && <span>{t('About')}</span>
-          }
-        </AppLink>
-        <AppLink hidden={!isAuth} className={classNames(styles.menuItem)} theme={AppLinkTheme.SECONDARY} to={'/profile'}>
-          <ProfileIcon />
-          {
-            !collapsed && <span>{t('Profile')}</span>
-          }
-        </AppLink>
+        {menuItemList}
       </div>
 
       <div className={styles.swithers}>
