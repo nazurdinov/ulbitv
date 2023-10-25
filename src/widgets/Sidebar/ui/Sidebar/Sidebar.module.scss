@@ -1,7 +1,7 @@
 .Sidebar {
   height: calc(100vh - var(--navbar-height));
   width: var(--sidebar-width);
-  background: var(--bg-color-inverted);
+  background: var(--secondary-bg-color);
   position: relative;
   transition: width .3s;
 }
@@ -26,8 +26,8 @@
 }
 
 .collapsBtn {
-  background: var(--bg-color-inverted);
-  color: var(--primary-color-inverted);
+  background: var(--secondary-bg-color);
+  color: var(--primary-color);
   position: absolute;
   bottom: 40px;
   right: -20px;
@@ -38,8 +38,6 @@
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
-
-
 
 .menu {
   display: flex;
@@ -58,10 +56,8 @@
       margin-right: 5px;
   
       path {
-        fill: var(--primary-color-inverted);
+        fill: var(--primary-color);
       }
     }
   }
-
-  
 }

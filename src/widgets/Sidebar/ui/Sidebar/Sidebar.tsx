@@ -9,6 +9,7 @@ import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 import HomeIcon from 'shared/assets/icons/main-20-20.svg'
 import AboutIcon from 'shared/assets/icons/about-20-20.svg'
 import ProfileIcon from 'shared/assets/icons/profile_icon.svg'
+import { useAuth } from 'shared/lib/hooks/useAuth/useAuth'
 
 interface SidebarProps {
   className?: string
@@ -17,6 +18,8 @@ interface SidebarProps {
 export const Sidebar = ({ className = '' }: SidebarProps): JSX.Element => {
   const [collapsed, setCollapsed] = useState(false)
   const { t } = useTranslation()
+
+  const isAuth = useAuth()
 
   const toggleCollapse = (): void => {
     setCollapsed(prev => !prev)
@@ -37,7 +40,7 @@ export const Sidebar = ({ className = '' }: SidebarProps): JSX.Element => {
             !collapsed && <span>{t('About')}</span>
           }
         </AppLink>
-        <AppLink className={classNames(styles.menuItem)} theme={AppLinkTheme.SECONDARY} to={'/profile'}>
+        <AppLink hidden={!isAuth} className={classNames(styles.menuItem)} theme={AppLinkTheme.SECONDARY} to={'/profile'}>
           <ProfileIcon />
           {
             !collapsed && <span>{t('Profile')}</span>

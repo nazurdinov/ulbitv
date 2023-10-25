@@ -1,0 +1,22 @@
+.EditProfileForm {
+  opacity: 1;
+}
+
+.header {
+  display: flex;
+  margin-bottom: 10px;
+
+  .editBtn {
+    margin-left: auto;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: right;
+  margin-top: 10px;
+
+  .saveBtn {
+    margin-right: 5px;
+  }
+}

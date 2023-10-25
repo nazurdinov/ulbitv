@@ -25,14 +25,14 @@
       "password": "123"
     }
   ],
-  "profile": { 
-    "firstname": "Samir",
-    "lastname": "Nazurdinov",
+  "profile": {
+    "firstname": "Samir1",
+    "lastname": "Nazurdinov1",
     "age": 33,
-    "currency": "USD",
-    "country": "USA",
-    "city": "Denver",
-    "username": "admin",
-    "avatar": "https://www.nj.com/resizer/zovGSasCaR41h_yUGYHXbVTQW2A=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/SJGKVE5UNVESVCW7BBOHKQCZVE.jpg"
+    "city": "Aurora",
+    "username": "samir90",
+    "avatar": "https://miro.medium.com/v2/resize:fit:640/0*ngAthWxOvKZHvsw9",
+    "currency": "RUB",
+    "country": "USA"
   }
 }

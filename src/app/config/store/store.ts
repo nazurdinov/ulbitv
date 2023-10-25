@@ -19,12 +19,14 @@ export const createReduxStore = (
       getDefaultMiddleware({
         thunk: {
           extraArgument: {
-            api: $api,
-            navigate
+            api: $api(),
+            navigate,
+            test: () => {
+              console.log('tessst')
+            }
           }
         }
       })
-
   })
 
   // eslint-disable-next-line

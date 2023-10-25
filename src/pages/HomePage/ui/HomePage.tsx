@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next'
 import { useEffect, useState } from 'react'
-import { Counter } from 'entities/Counter'
 
 function Bugbutton () {
   const [isError, setisError] = useState(false)
@@ -16,7 +15,6 @@ function HomePage (): JSX.Element {
 
   return (
       <>
-        <Counter />
         <Bugbutton />
         <div>{t('Home page')}</div>
       </>

@@ -5,4 +5,6 @@ export interface User {
 
 export interface UserSchema {
   authData?: User
+
+  readonly _inited: boolean
 }

@@ -5,7 +5,7 @@ const ProfilePageAsync = lazy(async () => {
     setTimeout(() => {
       // @ts-expect-error error
       resolve(import('pages/ProfilePage/ui/ProfilePage'))
-    }, 2000)
+    }, 500)
   })
 })
 

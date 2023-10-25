@@ -3,16 +3,13 @@
   
   h1 {
     text-align: center;
-    color: var(--primary-color-inverted);
   }
 
   .enterBtnWr {
     display: flex;
     justify-content: end;
 
-    label {
-      color: var(--primary-color-inverted);
-    }
+    
   }
 
   .errorMsg {

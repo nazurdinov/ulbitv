@@ -10,8 +10,14 @@
   input {
     padding: 7px 10px;
     border: 1px solid var(--secondary-color);
+    background-color: var(--bg-color);
     border-radius: 3px;
     color: var(--primary-color);
     font-size: 12px;
+    outline: none;
+
+    &:read-only {
+      opacity: 0.4;
+    }
   }
 }

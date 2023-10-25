@@ -6,12 +6,14 @@ import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar/ui'
 import { Suspense, useEffect } from 'react'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { userActions } from 'entities/User'
+import { getIsUserInited, userActions } from 'entities/User'
+import { useSelector } from 'react-redux'
 
 function App (): JSX.Element {
   const { theme } = useTheme()
 
   const dispatch = useAppDispatch()
+  const isUserInited = useSelector(getIsUserInited)
 
   useEffect(() => {
     dispatch(userActions.initAuthData())
@@ -19,13 +21,13 @@ function App (): JSX.Element {
 
   return (
     <Suspense fallback=''>
-    <div data-testid='app' id='app' className={classNames('app', {}, [theme])}>
-      <Navbar />
-      <div className="content-page">
-        <Sidebar />
-        <AppRouter />
+      <div data-testid='app' id='app' className={classNames('app', {}, [theme])}>
+        <Navbar />
+        <div className="content-page">
+          <Sidebar />
+          { isUserInited && <AppRouter /> }
+        </div>
       </div>
-    </div>
     </Suspense>
   )
 }

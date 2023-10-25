@@ -1,8 +1,9 @@
+import { type } from 'os'
 import { AboutPage } from 'pages/AboutPage'
 import { HomePage } from 'pages/HomePage'
 import { NotFoundPage } from 'pages/NotFoundPage'
 import { ProfilePage } from 'pages/ProfilePage'
-import { type RouteProps } from 'react-router-dom'
+import { type RouterProps, type RouteProps } from 'react-router-dom'
 
 export enum AppRouteName {
   MAIN = 'main',
@@ -20,7 +21,7 @@ export const RoutePaths: Record<AppRouteName, string> = {
   [AppRouteName.NOT_FOUND]: '*'
 }
 
-export const routesConfig: RouteProps[] = [
+export const routesConfig: AppRouteProps[] = [
   {
     id: AppRouteName.MAIN,
     path: RoutePaths.main,
@@ -34,7 +35,9 @@ export const routesConfig: RouteProps[] = [
   {
     id: AppRouteName.PROFILE,
     path: RoutePaths.profile,
-    element: <ProfilePage />
+    element: <ProfilePage />,
+    authOnly: true
+
   },
 
   // Fallback page
@@ -44,3 +47,7 @@ export const routesConfig: RouteProps[] = [
     element: <NotFoundPage />
   }
 ]
+
+export type AppRouteProps = RouteProps & {
+  authOnly?: boolean
+}
